@@ -1,0 +1,67 @@
+.popup {
+   visibility: hidden;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	z-index: 100;
+   @include dynamic-option(padding, 10, 5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+   height: 100%;
+   transition: visibility 0.8s ease 0s;
+	&::before {
+		content: "";
+		background-color: rgba(0, 0, 0, 0.9);
+		opacity: 0;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+      transition: opacity 0.8s ease 0s;
+	}
+	&._active {
+		visibility: visible;
+		&::before {
+			opacity: 1;
+		}
+		.popup__body {
+         @include transition(0.3,0.2);
+         opacity: 1;
+			@include transform(perspective(600px) translate(0px, 0px) rotateX(0deg));
+		}
+	}
+	&__content {
+		flex-direction: column;
+		min-height: 100%;
+		flex: 1 1 auto;
+		min-width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__body {
+      opacity: 0;
+		@include transform(perspective(600px) translate(0px, -100%) rotateX(45deg));
+		@include transition();
+		background-color: #fff;
+      @include dynamic-option(padding, 50, 25);
+		width: 100%;
+      @include dynamic-max-width(800, $maxWidth);
+	}
+	&__close {
+		min-width: 18px;
+      min-height: 18px;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		cursor: pointer;
+		z-index: 30;
+      // background: url("../img/icons/close.svg") 0 0 / 100% no-repeat;
+      @media (min-width:$maxWidth+1px){
+         @include dynamic-option(width, 18, 9);
+         @include dynamic-option(height, 18, 9);
+      }
+	}
+}

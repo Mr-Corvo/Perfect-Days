@@ -1,0 +1,121 @@
+* {
+   padding: 0px;
+   margin: 0px;
+   border: 0px;
+}
+*,
+*:before,
+*:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+:focus,
+:active {
+   outline: none;
+}
+a,
+span,
+label,
+*:before,
+*:after {
+   display: inline-block;
+}
+a:focus,
+a:active {
+   outline: none;
+}
+aside,
+nav,
+main,
+footer,
+header,
+section,
+input,
+textarea,
+details {
+   display: block;
+}
+html,
+body {
+   -webkit-text-size-adjust: 100%;
+   min-width: $minwidth + px;
+}
+body {
+   color: $color;
+   line-height: 1;
+   font-family: $fontfamily;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+input::-ms-clear,
+template {
+   display: none;
+}
+button,
+a {
+   color: inherit;
+   cursor: pointer;
+   background-color: transparent;
+}
+button::-moz-focus-inner {
+   padding: 0;
+   border: 0;
+}
+a,
+a:visited {
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: none;
+}
+ul li {
+   list-style: none;
+}
+img {
+   vertical-align: top;
+   display: inline-block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+   -webkit-appearance: button;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+   height: auto;
+}
+@at-root {
+   // Remove controls input type number
+   // Chrome and other browsers
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+   }
+   // Firefox
+   input[type="number"] {
+      -moz-appearance: textfield;
+   }
+   input[type="number"]:hover,
+   input[type="number"]:focus {
+      -moz-appearance: number-input;
+   }
+}

@@ -1,0 +1,50 @@
+Libraries
+//@prepros-append another/libs/modernizr.js
+//@prepros-append another/libs/dynamicAdapt.js
+//@prepros-append another/libs/lightgallery.js
+//@prepros-append another/libs/nouislider.js
+
+Regular
+//@prepros-append another/regular/start.js
+//@prepros-append another/regular/script.js
+//@prepros-append another/regular/functions.js
+//@prepros-append another/regular/forms.js
+//@prepros-append another/regular/end.js
+
+Additionally
+//@prepros-append another/additionally/gallery.js
+//@prepros-append another/additionally/animationOnScroll.js
+//@prepros-append another/additionally/fullScroll.js
+//@prepros-append another/additionally/liveGradient.js
+//@prepros-append another/additionally/sliders.js
+//@prepros-append another/additionally/fullcalendar.js
+
+CDN Libraries
+<script src=""></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.1/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/inputmask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/autosize@5.0.0/dist/autosize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script> 
+
+CDN Additionally
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.1.8/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.1.8/plugins/zoom/lg-zoom.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.1.8/plugins/fullscreen/lg-fullscreen.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/TextPlugin.min.js"></script>
+
+Map
+<script src="https://maps.google.com/maps/api/js?sensor=false&amp;key=AIzaSyAe2qamce_RVw-APqN7EqsaGZ2Cm5Zciss"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=88450800-c3cf-4124-9321-04e971d0c3d8&lang=ru_RU" type="text/javascript"></script>
+
+<!-- async -->

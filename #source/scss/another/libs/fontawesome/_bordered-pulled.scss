@@ -1,0 +1,20 @@
+// Bordered & Pulled
+// -------------------------
+
+.#{$fa-css-prefix}-border:before {
+  border: solid .08em $fa-border-color;
+  border-radius: .1em;
+  padding: .2em .25em .15em;
+}
+
+.#{$fa-css-prefix}-pull-left:before { float: left; }
+.#{$fa-css-prefix}-pull-right:before { float: right; }
+
+.#{$fa-css-prefix},
+.fas:before,
+.far:before,
+.fal:before,
+.fab:before {
+  &.#{$fa-css-prefix}-pull-left:before { margin-right: .3em; }
+  &.#{$fa-css-prefix}-pull-right:before { margin-left: .3em; }
+}

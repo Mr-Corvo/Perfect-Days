@@ -1,0 +1,491 @@
+//<Input>============================================================================================================================================================================================================
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}
+._input {
+   @include transition(0.15);
+   border-radius: 5px;
+   overflow: hidden;
+   width: 100%;
+   @include dynamic-option(min-height, 50, 30);
+   @include dynamic-option-rl(padding, 20, 10);
+   &._focus {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+   }
+   &._error {
+      box-shadow: 0 0 5px rgba(232, 42, 55, 1);
+   }
+}
+textarea {
+   @include dynamic-option-tb(padding, 15, 10);
+   &._autosize {
+      resize: none;
+   }
+}
+
+//</Input>===========================================================================================================================================================================================================
+
+//<Select>===========================================================================================================================================================================================================
+.select {
+   position: relative;
+   &._active {
+      z-index: 5;
+      .select__value {
+         &:before {
+            @include transform(rotate(-180deg));
+         }
+      }
+      .select__options {
+         display: block;
+      }
+   }
+   &__item {
+      position: relative;
+   }
+   &__title {
+      border: 1px solid #d9d9d9;
+      cursor: pointer;
+      border-radius: 4px;
+      @media (min-width: $maxWidth+1px) {
+         @include dynamic-option(border, 1, 0, $addParamsAfter: solid #d9d9d9);
+         @include dynamic-option(border-radius, 4, 2);
+      }
+   }
+   &__value {
+      display: flex;
+      @include best-font(16, 14);
+      @include dynamic-option(padding, 15, 8);
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      @media (min-width: $maxWidth+1px) {
+         @include best-font(16, 5);
+      }
+      span {
+         display: flex;
+      }
+      &:before {
+         content: "";
+         @include transition();
+         min-width: 11px;
+         min-height: 7px;
+         background: url("../img/icons/select.svg") center / 100% no-repeat;
+         @media (min-width: $maxWidth+1px) {
+            @include dynamic-option(min-width, 11, 2);
+            @include dynamic-option(min-height, 7, 2);
+         }
+      }
+   }
+   &__options {
+      display: none;
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      @include transform(translate(0, 100%));
+      border-radius: 0 0 4px 4px;
+      min-width: 100%;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
+      border-top: 0;
+      @include best-font(16, 14);
+      padding: 5px 0px 5px 0px;
+      @media (min-width: $maxWidth+1px) {
+         @include best-font(16, 5);
+         @include dynamic-option-tb(padding, 5, 2.5);
+         @include dynamic-option(bottom, 2, 0);
+         @include dynamic-option(border, 1, -1, $addParamsAfter: solid #d9d9d9);
+         border-top: 0;
+         border-radius: 0 0 calc(0px + 4 * ((100vw - 320px) / 1120)) calc(0px + 4 * ((100vw - 320px) / 1120));
+      }
+      &._slide {
+      }
+   }
+   &__option {
+      color: #333;
+      cursor: pointer;
+      padding: 5px 15px;
+      margin: 0px;
+      @media (min-width: $maxWidth+1px) {
+         @include dynamic-option-rl(padding, 15, 8);
+         @include dynamic-option-tb(padding, 5, 0);
+      }
+      body._mouse &:hover {
+         background: #d9d9d9;
+      }
+   }
+}
+//</Select>==========================================================================================================================================================================================================
+
+//<Check>============================================================================================================================================================================================================
+.check {
+   position: relative;
+   padding: 5px 0px 5px 70px;
+   @include best-font(18, 15, 18);
+   color: #999;
+   cursor: pointer;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option-tb(padding, 5, 2);
+      @include dynamic-option-left(padding, 70, 35);
+      @include best-font(18, 8, 20);
+   }
+   &._active {
+      color: #000;
+   }
+   input {
+      width: 0;
+      height: 0;
+      opacity: 0;
+   }
+   &:before {
+      content: "";
+      width: 50px;
+      height: 20px;
+      border-radius: 20px;
+      background-color: #bfc0c4;
+      position: absolute;
+      left: 0;
+      top: 5px;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      @media (min-width: $maxWidth+1px) {
+         @include dynamic-option(width, 50, 20);
+         @include dynamic-option(height, 20, 10);
+         top: 50%;
+         @include transform(translate(0, -50%));
+         @include dynamic-option(border-radius, 20, 10);
+         @include dynamic-option(box-shadow, 15, 3, $addParamsBefore: 0 0, $addParamsAfter: rgba(0, 0, 0, 0.3));
+      }
+   }
+   &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #bfc0c4;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      @include transition(0.15);
+      @media (min-width: $maxWidth+1px) {
+         @include dynamic-option(width, 30, 10);
+         @include dynamic-option(height, 30, 10);
+         @include dynamic-option(box-shadow, 15, 3, $addParamsBefore: 0 0, $addParamsAfter: rgba(0, 0, 0, 0.3));
+         top: 50%;
+         @include transform(translate(0, -50%));
+      }
+   }
+   &._error {
+      &:before,
+      &:after {
+         background-color: #f93939;
+         box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+         @media (min-width: $maxWidth+1px) {
+            @include dynamic-option(box-shadow, 15, 3, $addParamsBefore: 0 0, $addParamsAfter: rgba(0, 0, 0, 0.3));
+         }
+      }
+   }
+   &._active {
+      &:after {
+         background-color: #4fbb65;
+         left: 25px;
+         @media (min-width: $maxWidth+1px) {
+            @include dynamic-option(left, 25, 15);
+         }
+      }
+      &:before {
+         background-color: #4fbb65;
+      }
+   }
+}
+//</Check>===========================================================================================================================================================================================================
+
+//<Options>==========================================================================================================================================================================================================
+.option {
+   position: relative;
+   @include dynamic-option-bottom(margin, 30, 15);
+   &:last-child {
+      margin: 0;
+   }
+   input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 3;
+      opacity: 0;
+      cursor: pointer;
+      &:checked + label {
+         &:before {
+            border-color: #4d98ef;
+            @include dynamic-option(box-shadow, 15, 3, $addParamsBefore: 0 0, $addParamsAfter: rgb(77, 152, 239, 0.5));
+         }
+         &:after {
+            @include transform(scale(1));
+            @include dynamic-option(box-shadow, 10, 0, $addParamsBefore: 0 0, $addParamsAfter: rgb(77, 152, 239, 0.5));
+         }
+      }
+   }
+   label {
+      padding: 0px 0px 0px 25px;
+      @include best-font(15, 14);
+      line-height: 20px;
+      @media (min-width: $maxWidth+1px) {
+         @include best-font(15, 5, 20);
+         @include dynamic-option-left(padding, 25, 10);
+      }
+      position: relative;
+      &:before {
+         content: "";
+         @include transition();
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 20px;
+         height: 20px;
+         border: 2px solid #545556;
+         border-radius: 50%;
+         @media (min-width: $maxWidth+1px) {
+            @include dynamic-option(width, 20, 8);
+            @include dynamic-option(height, 20, 8);
+            @include dynamic-option(border, 2, 1, $addParamsAfter: solid #545556);
+         }
+      }
+      &:after {
+         content: "";
+         position: absolute;
+         top: 5px;
+         left: 5px;
+         width: 10px;
+         height: 10px;
+         background-color: #4d98ef;
+         border-radius: 50%;
+         @include transition();
+         @include transform(scale(0));
+         @media (min-width: $maxWidth+1px) {
+            @include dynamic-option(width, 10, 4);
+            @include dynamic-option(height, 10, 4);
+            @include dynamic-option(top, 5, 2);
+            @include dynamic-option(left, 5, 2);
+         }
+      }
+   }
+}
+//</Options>=========================================================================================================================================================================================================
+
+//<Rating>===========================================================================================================================================================================================================
+.rating {
+   display: flex;
+   align-items: flex-end;
+   @include best-font(40, 20);
+   line-height: 0.75;
+   transition: opacity 0.3s ease 0s;
+   &_sending {
+      opacity: 0.2;
+   }
+   .rating-set &__active,
+   .rating-set &__item {
+      cursor: pointer;
+   }
+   &__body {
+      position: relative;
+      &:before {
+         content: "★★★★★";
+         display: block;
+      }
+   }
+   &__active {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      &:before {
+         content: "★★★★★";
+         color: #ffd300;
+         position: absolute;
+         width: 0%;
+         height: 100%;
+         top: 0;
+         left: 0;
+      }
+   }
+   &__items {
+      display: flex;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+   }
+   &__item {
+      flex: 0 0 20%;
+      height: 100%;
+      opacity: 0;
+   }
+   &__value {
+      font-size: 50%;
+      line-height: 1;
+      color: #fff;
+      padding: 0px 0px 0px 10px;
+      @media (min-width: $maxWidth+1px) {
+         @include dynamic-option-left(padding, 10, 0);
+      }
+   }
+}
+//</Rating>===========================================================================================================================================================================================================
+
+//<Quantity>==========================================================================================================================================================================================================
+.quantity {
+   @include flexboxinline();
+   background: #fff;
+   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+   border-radius: 25px;
+   min-height: 40px;
+   width: 110px;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(min-height, 40, 20);
+      @include dynamic-option(width, 110, 74);
+      @include dynamic-option(box-shadow, 4, -4, $addParamsBefore: 0 2px, $addParamsAfter: rgba(0, 0, 0, 0.35));
+      @include dynamic-option(border-radius, 25, 12.5);
+   }
+   &__button {
+      flex: 0 0 40px;
+      position: relative;
+      cursor: pointer;
+      @media (min-width: $maxWidth+1px) {
+         @include dynamic-option(flex, 40, 30, $addParamsBefore: 0 0);
+      }
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         @include transition();
+         @include transform(translate(-50%, 0));
+         background-color: #667780;
+         width: 9px;
+         height: 2px;
+         @media (min-width: $maxWidth+1px) {
+            @include dynamic-option(width, 9, 0);
+            @include dynamic-option(height, 2, 0);
+         }
+      }
+      body._mouse &:hover {
+         &::before,
+         &::after {
+            background-color: rgb(71, 81, 87, 0.8);
+            @include transform(translate(-50%, 0) scale(1.05) rotate(0deg));
+         }
+      }
+      body._mouse &:active {
+         &::before,
+         &::after {
+            background-color: rgb(0, 219, 80);
+            @include transform(translate(-50%, 0) scale(1.25) rotate(0deg));
+         }
+      }
+      &_plus {
+         body._mouse &:hover {
+            &:before {
+               background-color: rgb(71, 81, 87, 0.8);
+               @include transform(translate(-50%, 0) scale(1.05) rotate(-90deg));
+            }
+         }
+         body._mouse &:active {
+            &:before {
+               background-color: rgb(0, 219, 80);
+               @include transform(translate(-50%, 0) scale(1.25) rotate(-90deg));
+            }
+         }
+         &::before {
+            @include transform(translate(-50%, 0) scale(1) rotate(-90deg));
+         }
+      }
+      &_minus {
+      }
+   }
+   &__input {
+      input {
+         color: rgb(71, 81, 87, 0.8);
+         width: 30px;
+         height: 100%;
+         @include best-font(16, 14);
+         text-align: center;
+         @media (min-width: $maxWidth+1px) {
+            @include dynamic-option(width, 30, 15);
+            @include best-font(16, 5);
+         }
+      }
+   }
+}
+//</Quantity>=========================================================================================================================================================================================================
+
+//<File>==============================================================================================================================================================================================================
+.file {
+   &__item {
+      position: relative;
+   }
+   &__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      font-size: 0;
+      cursor: pointer;
+   }
+   &__button {
+      display: inline-flex;
+      min-height: 40px;
+      border-radius: 30px;
+      justify-content: center;
+      align-items: center;
+      background-color: #093939;
+      padding: 0px 20px;
+      @include best-font(20, 16);
+      @include dynamic-option(min-height, 40, 25);
+      @include dynamic-option-rl(padding, 20, 15);
+      @media (min-width: $maxWidth+1px) {
+         @include best-font(20, 12);
+         @include dynamic-option(min-height, 40, 20);
+         @include dynamic-option-rl(padding, 20, 10);
+      }
+   }
+   &__preview {
+      display: inline-block;
+      @include dynamic-max-width(150);
+      @include dynamic-option-top(padding, 10, 5);
+      img {
+         max-width: 100%;
+      }
+   }
+}
+//</File>=============================================================================================================================================================================================================
+
+//<Range>=============================================================================================================================================================================================================
+.range-block {
+   &__range {
+   }
+   &__inputs {
+      @include flexbox();
+      @include dynamic-option-rl(margin, -10, -5);
+      @include dynamic-option-bottom(padding, 60, 40);
+      input {
+         width: 100%;
+         @include dynamic-option(min-height, 50, 30);
+         @include best-font(18, 14);
+         @include dynamic-option-rl(margin, 10, 5);
+         @include dynamic-option(padding, 10, 5);
+      }
+   }
+}
+//</Range>============================================================================================================================================================================================================

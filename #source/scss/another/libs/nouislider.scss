@@ -1,0 +1,366 @@
+/*! nouislider - 14.6.0 - 6/27/2020 */
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+.noUi-target,
+.noUi-target * {
+   -webkit-touch-callout: none;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   -webkit-user-select: none;
+   -ms-touch-action: none;
+   touch-action: none;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   user-select: none;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+.noUi-target {
+   position: relative;
+}
+.noUi-base,
+.noUi-connects {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   z-index: 1;
+}
+/* Wrapper for all connect elements.
+ */
+.noUi-connects {
+}
+.noUi-connect,
+.noUi-origin {
+   will-change: transform;
+   position: absolute;
+   z-index: 1;
+   top: 0;
+   right: 0;
+   -ms-transform-origin: 0 0;
+   -webkit-transform-origin: 0 0;
+   -webkit-transform-style: preserve-3d;
+   transform-origin: 0 0;
+   transform-style: flat;
+}
+.noUi-connect {
+   height: 100%;
+   width: 100%;
+}
+.noUi-origin {
+   height: 10%;
+   width: 10%;
+}
+/* Offset direction
+ */
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+   left: 0;
+   right: auto;
+}
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.noUi-vertical .noUi-origin {
+   width: 0;
+}
+.noUi-horizontal .noUi-origin {
+   height: 0;
+}
+.noUi-handle {
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+   position: absolute;
+}
+.noUi-touch-area {
+   height: 100%;
+   width: 100%;
+}
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+   -webkit-transition: transform 0.3s;
+   transition: transform 0.3s;
+}
+.noUi-state-drag * {
+   cursor: inherit !important;
+}
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+   height: initial !important;
+}
+.noUi-horizontal .noUi-handle {
+   width: 23px;
+   height: 23px;
+   right: -11.5px;
+   top: -10px;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(width, 23, 10);
+      @include dynamic-option(height, 23, 10);
+      @include dynamic-option(right, -11.5, -5);
+      @include dynamic-option(top, -10, -10);
+   }
+}
+.noUi-vertical {
+   width: 18px;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(width, 18, 5);
+   }
+}
+.noUi-vertical .noUi-handle {
+   width: 28px;
+   height: 34px;
+   right: -6px;
+   top: -17px;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(width, 28, 15);
+      @include dynamic-option(height, 34, 21);
+      @include dynamic-option(right, -6, -19);
+      @include dynamic-option(top, -17, -30);
+   }
+}
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+   left: -17px;
+   right: auto;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(left, -17, -30);
+   }
+}
+/* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+.noUi-target {
+   // height: 4px;
+   // background-color: #eaeaea;
+   // margin: 0px 11px 50px;
+   // position: relative;
+   // &::before,
+   // &::after {
+   // 	content: "";
+   // 	background-color: #eaeaea;
+   // 	width: 11px;
+   // 	height: 4px;
+   // 	position: absolute;
+   // 	top: 0;
+   // }
+   // &::before {
+   // 	left: -10px;
+   // }
+   // &::after {
+   // 	right: -10px;
+   // }
+}
+.noUi-connects {
+   background-color: #eee;
+   @include dynamic-option(border-radius, 15, 5);
+}
+.noUi-connect {
+   background-color: #ffcda5;
+   height: 4px;
+   margin: 0px 0px 50px;
+   position: relative;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(height, 4, -9);
+      @include dynamic-option-bottom(margin, 50, 40);
+   }
+   
+}
+/* Handles and cursors;
+ */
+.noUi-draggable {
+   cursor: ew-resize;
+}
+.noUi-vertical .noUi-draggable {
+   cursor: ns-resize;
+}
+.noUi-handle {
+   border: 2.5px solid #fff;
+   background-color: #f68038;
+   border-radius: 50%;
+   cursor: default;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option(border, 2.5, 1, $addParamsAfter: solid #fff);
+   }
+}
+.noUi-active {
+   box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ddd, 0 3px 6px -3px #bbb;
+}
+
+/* Disabled state;
+ */
+[disabled] .noUi-connect {
+   background: #b8b8b8;
+}
+[disabled].noUi-target,
+[disabled].noUi-handle,
+[disabled] .noUi-handle {
+   cursor: not-allowed;
+}
+/* Base;
+ *
+ */
+.noUi-pips,
+.noUi-pips * {
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+.noUi-pips {
+   position: absolute;
+   color: #999;
+}
+/* Values;
+ *
+ */
+.noUi-value {
+   position: absolute;
+   white-space: nowrap;
+   text-align: center;
+}
+.noUi-value-sub {
+   color: #ccc;
+   font-size: 10px;
+   @media (min-width: $maxWidth+1px) {
+      @include best-font(10, -3);
+   }
+}
+/* Markings;
+ *
+ */
+.noUi-marker {
+   position: absolute;
+   background: #ccc;
+}
+.noUi-marker-sub {
+   background: #aaa;
+}
+.noUi-marker-large {
+   background: #aaa;
+}
+/* Horizontal layout;
+ *
+ */
+.noUi-pips-horizontal {
+   padding: 10px 0;
+   height: 80px;
+   top: 100%;
+   left: 0;
+   width: 100%;
+   @media (min-width: $maxWidth+1px) {
+      @include best-font(80, 65);
+      @include dynamic-option-tb(padding, 10, -3);
+   }
+}
+.noUi-value-horizontal {
+   -webkit-transform: translate(-50%, 50%);
+   transform: translate(-50%, 50%);
+}
+.noUi-rtl .noUi-value-horizontal {
+   -webkit-transform: translate(50%, 50%);
+   transform: translate(50%, 50%);
+}
+.noUi-marker-horizontal.noUi-marker {
+   margin-left: -1px;
+   width: 2px;
+   height: 5px;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(width, 2, -11);
+      @include dynamic-option(heigtt, 5, -8);
+   }
+}
+.noUi-marker-horizontal.noUi-marker-sub {
+   height: 10px;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(height, 10, -3);
+   }
+}
+.noUi-marker-horizontal.noUi-marker-large {
+   height: 15px;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option(heigth, 15, 2);
+   }
+}
+/* Vertical layout;
+ *
+ */
+.noUi-pips-vertical {
+   padding: 0 10px;
+   height: 100%;
+   top: 0;
+   left: 100%;
+   @media (min-width: $maxWidth+1px) {
+      @include dynamic-option-rl(padding, 10, -3);
+   }
+}
+.noUi-value-vertical {
+   -webkit-transform: translate(0, -50%);
+   transform: translate(0, -50%);
+   padding-left: 25px;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option-left(padding, 25, 12);
+   }
+}
+.noUi-rtl .noUi-value-vertical {
+   -webkit-transform: translate(0, 50%);
+   transform: translate(0, 50%);
+}
+.noUi-marker-vertical.noUi-marker {
+   width: 5px;
+   height: 2px;
+   margin-top: -1px;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option(width, 5, -8);
+      @include dynamic-option(height, 2, -11);
+      @include dynamic-option-top(margin, -1, -14);
+   }
+}
+.noUi-marker-vertical.noUi-marker-sub {
+   width: 10px;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option(width, 10, -3);
+   }
+}
+.noUi-marker-vertical.noUi-marker-large {
+   width: 15px;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option(width, 15, 2);
+   }
+}
+.noUi-tooltip {
+   color: #999999;
+   font-size: 12px;
+   position: absolute;
+   @media (min-width:$maxWidth+1px){
+      @include best-font(12, -1);
+   }
+}
+.noUi-horizontal .noUi-tooltip {
+   transform: translate(-50%, 0);
+   left: 50%;
+   bottom: -22px;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option(bottom, -22, -9);
+   }
+}
+.noUi-vertical .noUi-tooltip {
+   -webkit-transform: translate(0, -50%);
+   transform: translate(0, -50%);
+   top: 50%;
+   right: 120%;
+}
+.noUi-horizontal .noUi-origin > .noUi-tooltip {
+   -webkit-transform: translate(50%, 0);
+   transform: translate(50%, 0);
+   left: auto;
+   bottom: 10px;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option(bottom, 10, -3);
+   }
+}
+.noUi-vertical .noUi-origin > .noUi-tooltip {
+   -webkit-transform: translate(0, -18px);
+   transform: translate(0, -18px);
+   top: auto;
+   right: 28px;
+   @media (min-width:$maxWidth+1px){
+      @include dynamic-option(right, 28, 6);
+   }
+}

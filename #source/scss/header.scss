@@ -1,0 +1,277 @@
+// .header {
+//    position: fixed;
+//    width: 100%;
+//    top: 0;
+//    left: 0;
+//    z-index: 100;
+//    &:before {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       background-color: #000;
+//       z-index: 2;
+//       opacity: 0.75;
+//    }
+//    &__body {
+//       @include flexbox();
+//       justify-content: space-between;
+//       align-items: center;
+//       @include dynamic-option(height, 80, 50);
+//       @include transition();
+//       body._sticky & {
+//          @include dynamic-option(height, 50, 30);
+//       }
+//    }
+//    &__logo {
+//       position: relative;
+//       @include dynamic-option(flex, 60, 40, $md3, $addParamsBefore: 0 0);
+//       overflow: hidden;
+//       z-index: 3;
+//       img {
+//          max-width: 100%;
+//       }
+//    }
+//    &__burger {
+//       @include transition();
+//       display: none;
+//       body._sticky & {
+//          @media (max-width: $md3+px) {
+//             height: 18px;
+//             width: 25px;
+//             // @media (min-width:$maxWidth+1px){
+//             //    @include dynamic-option(width, 25, 7);
+//             //    @include dynamic-option(height, 18, 5);
+//             // }
+//          }
+//       }
+//       @media (max-width: $md3+px) {
+//          display: block;
+//          position: relative;
+//          width: 30px;
+//          height: 20px;
+//          z-index: 3;
+//          // @media (min-width:$maxWidth+1px){
+//          //    @include dynamic-option(width, 30, 10);
+//          //    @include dynamic-option(height, 20, 0);
+//          // }
+//          &:before,
+//          &:after,
+//          span {
+//             @include transition();
+//             position: absolute;
+//             left: 0;
+//             width: 100%;
+//             height: 2px;
+//             background-color: #fff;
+//             // @media (min-width:$maxWidth+1px){
+//             //    @include dynamic-option(height, 2, 1);
+//             // }
+//          }
+//          &:before {
+//             content: "";
+//             top: 0;
+//          }
+//          &:after {
+//             content: "";
+//             top: 100%;
+//             transform: translate(0, -100%);
+//          }
+//          span {
+//             top: 50%;
+//             transform: scale(1) rotate(0deg) translate(0, -50%);
+//          }
+//          &._active {
+//             &:before {
+//                top: 50%;
+//                transform: rotate(45deg) translate(0, -50%);
+//             }
+//             &:after {
+//                top: 50%;
+//                transform: rotate(-45deg) translate(0, -50%);
+//             }
+//             span {
+//                transform: scale(0) rotate(-45deg) translate(0, -50%);
+//             }
+//          }
+//       }
+//    }
+//    @at-root .menu {
+//       @media (max-width: $md3+px) {
+//          @include transition(0.5);
+//          overflow: auto;
+//          position: fixed;
+//          top: -100%;
+//          left: 0;
+//          width: 100%;
+//          height: 100%;
+//          background-color: #18b5a4;
+//          @include dynamic-option-top(padding, 90, 60);
+//          @include dynamic-option-bottom(padding, 30, 15);
+//          @include dynamic-option-left(padding, 20, 10);
+//          body._sticky & {
+//             @include dynamic-option-top(padding, 70, 40);
+//          }
+//          &._active {
+//             top: 0;
+//          }
+//       }
+//       &__list {
+//          position: relative;
+//          z-index: 2;
+//          @include flexbox();
+//          @media (max-width: $md3+px) {
+//             display: block;
+//          }
+//          & > li {
+//             @include dynamic-option-right(margin, 20, 15);
+//             @media (max-width: $md3+px) {
+//                @include dynamic-option-bottom(margin, 20, 15);
+//             }
+//             &:last-child {
+//                margin: 0px 0px 0px 0px;
+//             }
+//          }
+//       }
+//       &__link {
+//          text-transform: uppercase;
+//          @include best-font(20, 18, 0, 0);
+//          @media (min-width: $maxWidth+1px) {
+//             @include best-font(20, 8);
+//          }
+//          @media (max-width: $md3+px) {
+//             font-size: 24px;
+//          }
+//          &._active {
+//             color: red;
+//          }
+//       }
+//    }
+// }
+// //====================================================================================================================================================================================================================
+// // & .sub-menu {
+// //    display: none;
+// //    min-width: 300px;
+// //    position: absolute;
+// //    left: 0;
+// //    @include dynamic-option-top(padding, 20, 10);
+// //    @include dynamic-option(top, 10, 5);
+// //    @media (min-width: $maxWidth+1px) {
+// //       @include dynamic-option(min-width, 300, 150);
+// //    }
+// //    @media (max-width: $md3+px) {
+// //       position: relative;
+// //       left: 0;
+// //       top: 0;
+// //    }
+// //    body._touch &._open {
+// //       display: block;
+// //    }
+// //    & > li {
+// //       background-color: #fff;
+// //       body._mouse &:hover .sub-sub-menu {
+// //          display: block;
+// //       }
+// //    }
+// //    &__link {
+// //       color: #000;
+// //       @include dynamic-option-tb(padding, 5, 2.5);
+// //       @include dynamic-option-rl(padding, 10, 5);
+// //       @include best-font(18, 16, 0, 0);
+// //       @media (min-width: $maxWidth+1px) {
+// //          @include best-font(18, 10);
+// //       }
+// //       @media (max-width: $md3+px) {
+// //          font-size: 22px;
+// //       }
+// //    }
+// //    &__arrow._arrow {
+// //       @include dynamic-option(right, 10, 5);
+// //       @include dynamic-option(border-left, 10, 5, $addParamsAfter: solid #000);
+// //       @include dynamic-option(border-top, 10, 5, $addParamsAfter: solid transparent);
+// //       @include dynamic-option(border-bottom, 10, 5, $addParamsAfter: solid transparent);
+// //       border-right: none;
+// //    }
+// // }
+// // & .sub-sub-menu {
+// //    display: none;
+// //    position: absolute;
+// //    top: 0;
+// //    left: 100%;
+// //    min-width: 300px;
+// //    padding: 0px 0px 0px 5px;
+// //    @media (min-width: $maxWidth+1px) {
+// //       @include dynamic-option(min-width, 300, 150);
+// //       @include dynamic-option-left(padding, 5, 2.5);
+// //    }
+// //    @media (max-width: $md3+px) {
+// //       padding: 0px 5px;
+// //       position: relative;
+// //       left: 0;
+// //       top: 0;
+// //    }
+// //    body._touch &._open {
+// //       display: block;
+// //    }
+// //    & > li {
+// //       background-color: #000;
+// //    }
+// //    &__link {
+// //       color: #fff;
+// //       @include dynamic-option-tb(padding, 5, 2.5);
+// //       @include dynamic-option-rl(padding, 10, 5);
+// //       @include best-font(16, 14, 0, 0);
+// //       @media (min-width: $maxWidth+1px) {
+// //          @include best-font(16, 12);
+// //       }
+// //       @media (max-width: $md3+px) {
+// //          font-size: 20px;
+// //       }
+// //    }
+// //    &__arrow {
+// //       border-bottom: none;
+// //       @include dynamic-option(right, 10, 5);
+// //       @include dynamic-option(top, 15, 7.5);
+// //       @include dynamic-option(border-top, 10, 5, $addParamsAfter: solid #000);
+// //    }
+// // }
+// // & ._arrow {
+// //    display: none;
+// //    position: absolute;
+// //    right: 0;
+// //    top: 12px;
+// //    width: 0;
+// //    height: 0;
+// //    @include dynamic-option(top, 12, 6);
+// //    @include dynamic-option(border-top, 10, 5, $addParamsAfter: solid #fff);
+// //    @include dynamic-option(border-left, 10, 5, $addParamsAfter: solid transparent);
+// //    @include dynamic-option(border-right, 10, 5, $addParamsAfter: solid transparent);
+// //    &.active {
+// //       @include transform(rotate(-180deg));
+// //    }
+// //    body._touch & {
+// //       display: block;
+// //    }
+// // }
+// // a &.parent {
+// //    @include dynamic-option-right(margin, 30, 15);
+// // }
+// // li {
+// //    position: relative;
+// // }
+// // &__list {
+// //    @media (max-width: $md3+px) {
+// //       display: block;
+// //       & > li {
+// //          @include dynamic-option-bottom(margin, 10, 5);
+// //       }
+// //    }
+// //    & > li {
+// //       @include dynamic-option-right(margin, 30, 15);
+// //       body._mouse &:hover .sub-menu {
+// //          display: block;
+// //       }
+// //    }
+// // }

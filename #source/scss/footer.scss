@@ -1,0 +1,18 @@
+.footer {
+   background-color: $palette-2;
+   &__body {
+      @include flexbox();
+      justify-content: center;
+   }
+   @at-root .perfect-site {
+      &__title {
+         @include dynamic-option-tb(padding, 10, 5);
+         text-align: center;
+         color: #fff;
+         @include best-font(18, 16, 18, 0.5);
+         span {
+            letter-spacing: normal;
+         }
+      }
+   }
+}
