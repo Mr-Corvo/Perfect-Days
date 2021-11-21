@@ -1,10 +1,12 @@
-//! auto update
 var date = new Date();
 var dayNow = String(date.getDate()).length < 2 ? ("0" + (String(date.getDate()))) : String(date.getDate());
 var monthNow = String(date.getMonth() + 1).length < 2 ? ("0" + (String((date.getMonth() + 1)))) : String((date.getMonth() + 1));
 var yearNow = date.getFullYear();
 var dateEndEvent = `${yearNow}-${monthNow}-${dayNow}`;
-
+function getDifferenceDate(aDateOpt, bDateOpt) {
+   let aDate = aDateOpt.split('-'), bDate = bDateOpt.split('-'), aYear = aDate[0], aMonth = aDate[1], aDay = aDate[2], bYear = bDate[0], bMonth = bDate[1], bDay = bDate[2];
+   return Math.floor((new Date((bYear), ((String(bMonth).length < 2 ? ("0" + (String(bMonth - 1))) : String(bMonth - 1))), (String(bDay).length < 2 ? ("0" + (String(bDay))) : String(bDay))).getTime() - new Date((aYear), (String(aMonth).length < 2 ? ("0" + (String(aMonth - 1))) : String(aMonth - 1)), (String(aDay).length < 2 ? ("0" + (String(aDay))) : String(aDay))).getTime()) / (24 * 3600 * 1000));
+}
 document.addEventListener('DOMContentLoaded', function () {
    var nowDate = date.getTime();
    var oldDateData = eventsKeys[0].start.split('-');
