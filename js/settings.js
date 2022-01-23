@@ -1,10 +1,15 @@
 var eventsKeys = [
    {
       id: 'now',
-      title: `Perfect Days in a row(${getDifferenceDate("2022-01-01",dateEndEvent)})`,
-      start: "2022-01-01",
+      title: `Perfect Days in a row(${getDifferenceDate("2022-01-24",dateEndEvent)})`,
+      start: "2022-01-24",
       end: dateEndEvent,
       classNames: ['_event-now']
+   },
+   { 
+      title: `Perfect Days in a row(${getDifferenceDate("2022-01-01","2022-01-23")})`,
+      start: "2022-01-01",
+      end: "2022-01-23",
    },
    { 
       title: `Perfect Days in a row(${getDifferenceDate("2021-11-22","2021-12-29")})`,
