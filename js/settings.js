@@ -1,8 +1,8 @@
 var eventsKeys = [
    {
       id: 'now',
-      title: `Perfect Days in a row(${getDifferenceDate("2022-04-18",dateEndEvent)})`,
-      start: "2022-04-18",
+      title: `Perfect Days in a row(${getDifferenceDate("2022-04-25",dateEndEvent)})`,
+      start: "2022-04-25",
       end: dateEndEvent,
       classNames: ['_event-now']
    },
